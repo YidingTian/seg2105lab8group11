@@ -42,7 +42,11 @@ jobs:
       - store_artifacts:
           path: app/build/reports/tests/testDebugUnitTest
           destination: unit_test_reports
-
+restore_cache:
+  keys:
+    - v1-dependencies-{{ checksum "build.gradle" }}
+    - v1-dependencies-{{ checksum "app/build.gradle" }}
+    - v1-dependencies
 workflows:
   version: 2
   build_and_test:
