@@ -26,6 +26,6 @@ public class MainActivity extends AppCompatActivity {
                 resultText.setText("Password is invalid.");
             }
         });
-        
+
     }
 }

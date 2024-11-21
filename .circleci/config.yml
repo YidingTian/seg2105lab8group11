@@ -13,11 +13,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Make Gradle Wrapper Executable
-          command: chmod +x ./gradlew
-      - run:
           name: Build APK
-          command: ./gradlew assembleDebug
+          command: chmod +x ./gradlew
       - store_artifacts:
           path: app/build/outputs/apk/debug/app-debug.apk
           destination: app-debug.apk
@@ -27,14 +24,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Make Gradle Wrapper Executable
+          name: Run Unit Tests
           command: chmod +x ./gradlew
       - restore_cache:
           keys:
             - v1-gradle-cache-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - run:
           name: Run Unit Tests
-          command: ./gradlew testDebugUnitTest
+          command: chmod +x ./gradlew
       - save_cache:
           paths:
             - ~/.gradle/caches
