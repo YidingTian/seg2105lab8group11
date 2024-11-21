@@ -1,7 +1,7 @@
 package com.example.lab8;
 
 public class PasswordValidator {
-//test
+
     public static boolean isValidPassword(String password) {
         if (password == null) return false;
 
